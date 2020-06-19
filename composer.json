@@ -1,0 +1,20 @@
+{
+    "name": "dnsprogress/image-manipulation",
+    "authors": [
+        {
+            "name": "dnsprogress",
+            "email": "dnsprogress@gmail.com"
+        }
+    ],
+    "require": {
+        "intervention/image": "^2.5",
+        "vlucas/phpdotenv": "^4.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Root\\": "./",
+            "App\\": "app/",
+            "Config\\": "config/"
+        }
+    }
+}
