@@ -27,10 +27,13 @@ class PblCareerController
 
         $name = uniqid() . '.jpg';
         
-        if (Image::make($image['tmp_name'])
-            ->fit(800)
-            ->save($directory['dir_path'] . $name, 60)
-        ) {
+        if (getimagesize($image['tmp_name'])[0] > 700) {
+            $resize = Image::make($image['tmp_name'])->fit(700)->save($directory['dir_path'] . $name, 60);
+        } else {
+            $resize = Image::make($image['tmp_name'])->save($directory['dir_path'] . $name);
+        }
+        
+        if ($resize) {
             return Response::success([
                 'image' => $this->getHost($_SERVER) . $directory['dir_name'] . $name
             ], 200);
