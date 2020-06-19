@@ -28,7 +28,7 @@ class PblCareerController
         $name = uniqid() . '.jpg';
         
         if (Image::make($image['tmp_name'])
-            ->fit(700)
+            ->fit(800)
             ->save($directory['dir_path'] . $name, 60)
         ) {
             return Response::success([
